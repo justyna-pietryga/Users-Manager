@@ -10,7 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\MyUser;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view("welcome");
+});
+
+Route::resource('api/users', 'UsersController');
+
+Route::post('/', function (Request $request) {
+    return MyUser::create($request->all());
 });
