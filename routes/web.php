@@ -18,7 +18,6 @@ Route::get('/', function () {
 });
 
 Route::resource('api/users', 'UsersController');
+Route::resource('api/groups', 'GroupsController');
+Route::get('api/users/{id}/groups', 'UsersController@userGroups');
 
-Route::post('/', function (Request $request) {
-    return MyUser::create($request->all());
-});
